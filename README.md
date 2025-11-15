@@ -8,18 +8,15 @@
 <body>
     <h1>Authentification Discord en cours...</h1>
     <p>Nous traitons votre demande...</p>
-
     <script>
         // Récupérer le code de l'URL
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
-
         if (code) {
             // Préparer la requête pour échanger le code contre un token Discord
             const clientId = process.env.DISCORD_CLIENT_ID;  // Utilisation de la variable d'environnement
             const clientSecret = process.env.DISCORD_CLIENT_SECRET;  // Utilisation de la variable d'environnement
             const redirectUri = "https://ton-github-page.com";  // L'URL de redirection de ton OAuth2 (ton GitHub Page)
-
             // Faire la requête pour obtenir le token
             fetch('https://discord.com/api/oauth2/token', {
                 method: 'POST',
